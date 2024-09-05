@@ -69,9 +69,6 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para d
 Contato
 Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato:
 
-Nome: Guilherme Reis
-Email: seu-email@exemplo.com
-GitHub: seuusuario
 
 
 ### Explicações:
