@@ -1,9 +1,8 @@
 import subprocess
+import os
 
 def convert_audio(input_file: str, output_file: str):
-    """
-    Converte o arquivo de áudio para o formato MP3 com os parâmetros especificados.
-    """
+ 
     try:
         subprocess.run([
             'ffmpeg', '-i', input_file,
@@ -16,19 +15,21 @@ def convert_audio(input_file: str, output_file: str):
         print(f"Erro ao converter o áudio: {e}")
 
 def process_audio(input_path: str, output_path: str):
-    """
-    Processa o arquivo de áudio, verificando se precisa ser convertido.
-    """
+    
+    if input_path.endswith('.mp3.mp3'):
+        input_path = input_path[:-4]
+    
     if not is_valid_mp3(input_path):
         print("O arquivo MP3 não é válido, convertendo...")
         convert_audio(input_path, output_path)
     else:
-        print("O arquivo MP3 já está no formato correto.")
+        print("O arquivo MP3 já está no formato correto. Copiando...")
+        try:
+            os.rename(input_path, output_path)  
+            print(f"Arquivo copiado para {output_path}.")
+        except OSError as e:
+            print(f"Erro ao copiar o arquivo: {e}")
 
 def is_valid_mp3(file_path: str) -> bool:
-    """
-    Verifica se o arquivo é um MP3 válido.
-    """
-    # Implemente uma lógica para validar o arquivo MP3 se necessário
-    # Por exemplo, verificar a extensão do arquivo ou outras propriedades
-    return file_path.endswith('.mp3')
+  
+    return file_path.endswith('.mp3') and os.path.exists(file_path) and os.path.getsize(file_path) > 0
