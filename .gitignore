@@ -1,0 +1,42 @@
+# Diretórios e arquivos de build
+build/
+dist/
+*.egg-info/
+
+# Ambiente virtual
+venv/
+.env/
+
+# Dependências Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Arquivos de configuração sensíveis
+config.ini
+*.env
+
+# Arquivos de log
+*.log
+
+# Arquivos de áudio processados
+audio/*.mp3
+audio/*.wav
+text/*.txt
+
+# Arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos gerados pelo editor
+*.swp
+*.swo
+*.swn
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Configurações específicas do IDE
+*.iml
